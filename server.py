@@ -5,9 +5,10 @@ app = Flask(__name__)
 
 @app.route('/chat', methods=['POST'])
 def process_post_request():
-    uuid = request.form['uuid']
-    id = request.form['id']
-    prompt = request.form['prompt']
+    d = request.get_json()
+    uuid = d.get['uuid']
+    id = d.get['id']
+    prompt = d.get['prompt']
     
     result = process_values(uuid, id, prompt)
     
