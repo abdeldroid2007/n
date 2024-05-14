@@ -1,13 +1,11 @@
 import requests
 from flask import Flask, request
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
 
 @app.route('/chat', methods=['POST'])
 def process_post_request():
-    d = request.get_json()
+    d = request.json
     uuid = d.get['uuid']
     id = d.get['id']
     prompt = d.get['prompt']
