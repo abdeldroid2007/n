@@ -12,7 +12,7 @@ def process_post_request():
     id = d.get('id')
     prompt = d.get('prompt')
     
-    result = process_values(uuid, id, prompt)
+    result = send(uuid, id, prompt)
     
     return result
 
